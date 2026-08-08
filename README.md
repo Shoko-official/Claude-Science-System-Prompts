@@ -10,6 +10,10 @@ This repository contains:
 
 ---
 
+You might be here for these system prompts : 
+* [Claude Science Fable 5](https://github.com/Shoko-official/Claude-Science-System-Prompts/blob/main/prompt/fragments/claude-science/system-prompts/claude-science-fable-5-system-prompt.md)
+* [Claude Science Opus 5](https://github.com/Shoko-official/Claude-Science-System-Prompts/blob/main/prompt/fragments/claude-science/system-prompts/claude-science-opus-5-system-prompt.md)
+
 ## System Architecture & Comparisons
 
 ### 1. Standard Claude vs. Claude Science
