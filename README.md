@@ -1,5 +1,7 @@
 # Claude Science : System Prompt & Skills
 
+![Claude Science](img/claude-science.png)
+
 A collection of system prompts, skills, and runtime contracts for **Claude Science**, Anthropic's official research workbench for Claude.
 
 This repository contains:
