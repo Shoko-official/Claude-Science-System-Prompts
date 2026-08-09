@@ -1,45 +1,50 @@
-# Claude Science: System Prompts & Skills
+# Claude Science: Prompts, Skills, and MCP
 
 ![Claude Science](img/claude-science.png)
 
-Collection of Claude Science system prompts, reusable prompt fragments, and research-oriented agent skills.
+System prompts, scientific skills, and Bio Research MCP configuration.
 
-## Start here
+## Open directly
 
-Most visitors are looking for one of these files:
-
-| Looking for | Open |
+| Category | Files |
 |---|---|
-| Claude Science Opus 5 system prompt | [Claude Science Opus 5](prompt/fragments/claude-science/system-prompts/claude-science-opus-5-system-prompt.md) |
-| Claude Science Fable 5 system prompt | [Claude Science Fable 5](prompt/fragments/claude-science/system-prompts/claude-science-fable-5-system-prompt.md) |
-| Scientific research skill | [Conducting scientific research](skills/conducting-scientific-research/SKILL.md) |
-| Prompt fragments used by the Claude Science prompts | [Claude Science fragments](prompt/fragments/claude-science/) |
+| General prompts | [Opus 5](prompts/general/opus-5-system-prompt.md), [Fable 5](prompts/general/fable-5-system-prompt.md) |
+| Claude Science prompts | [Opus 5](prompts/claude-science/claude-science-opus-5-system-prompt.md), [Fable 5](prompts/claude-science/claude-science-fable-5-system-prompt.md) |
+| Research workflow | [Conducting scientific research](skills/conducting-scientific-research/SKILL.md) |
+| Bio Research setup | [Start skill](skills/bio-research-start/SKILL.md), [MCP configuration](mcp/bio-research/.mcp.json), [connector map](mcp/bio-research/CONNECTORS.md) |
 
-## Repository guide
+## Architecture
 
 ```text
-prompt/
-├── system-prompts/                 Standard Claude system prompts
-└── fragments/
-    ├── claude-science/
-    │   ├── system-prompts/         Complete Claude Science Opus 5 and Fable 5 prompts
-    │   ├── common-before-behavior.md
-    │   ├── opus-behavior.md
-    │   ├── fable-behavior.md
-    │   ├── common-after-behavior.md
-    │   └── tools.md
-    └── generic/                    Shared injections, commands, compaction, and tools
+prompts/
+├── general/                         General Opus 5 and Fable 5 prompts
+│   └── fragments/                   Compaction, commands, reminders, and tools
+└── claude-science/                  Complete Claude Science prompts
+    └── fragments/                   Claude Science prompt components
 
 skills/
-└── conducting-scientific-research/ Research workflow skill and reference material
+├── conducting-scientific-research/  General scientific workflow
+├── bio-research-start/              Bio Research orientation skill
+├── clinical-trial-protocol/         Clinical protocol workflow
+├── instrument-data-to-allotrope/    Instrument-data conversion
+├── nextflow-development/            nf-core pipeline workflows
+├── scientific-problem-selection/    Research strategy workflow
+├── scvi-tools/                      Single-cell omics analysis
+└── single-cell-rna-qc/              Single-cell RNA quality control
+
+mcp/
+└── bio-research/
+    ├── .mcp.json                    11 Bio Research MCP definitions
+    ├── CONNECTORS.md                Tool categories and configured servers
+    └── .claude-plugin/plugin.json   Plugin metadata
 ```
 
-### How files relate
+## Conventions
 
-- `prompt/fragments/claude-science/system-prompts/` contains ready-to-read, complete prompts. Start here.
-- Other files under `prompt/fragments/claude-science/` are modular source sections of those prompts.
-- `prompt/fragments/generic/` contains shared runtime-style fragments, not the main Claude Science prompts.
-- Each skill starts at its `SKILL.md`; its `references/` directory provides supporting guidance.
+- Open complete prompts directly from `prompts/general/` or `prompts/claude-science/`.
+- `fragments/` only contains components used to compose prompts. It never contains skills.
+- Every skill is directly under `skills/<skill-name>/`; begin with its `SKILL.md`.
+- MCP configuration lives under `mcp/`. It contains server definitions and connector documentation, not skill instructions.
 
 ## Claude Science overview
 
@@ -58,4 +63,6 @@ flowchart LR
 
 ## License
 
-Licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](LICENSE). Reuse requires appropriate attribution to [Shoko-official](https://github.com/Shoko-official).
+Repository material is licensed under [LICENSE](LICENSE).
+
+Material under `skills/` and `mcp/` is separately licensed under Apache-2.0. See [third-party licenses](THIRD_PARTY_LICENSES.md).
